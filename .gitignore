@@ -5,19 +5,19 @@
 *.log
 
 # IDE (IntelliJ IDEA, Eclipse, NetBeans и т.п.)
-.idea/
+.idea
 *.iml
 *.ipr
 *.iws
-.vscode/
+.vscode
 *.sw?
 
 # Maven
-target/
+target
 
 # Gradle
-.gradle/
-build/
+.gradle
+build
 !gradle/wrapper/gradle-wrapper.jar
 
 # OS-специфичные файлы
@@ -25,4 +25,4 @@ build/
 Thumbs.db
 
 # Кэш
-out/
+out
