@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <style>
+        table { border-collapse: collapse; width: 70%; margin: 10px 0; }
+        th, td { border: 1px solid black; padding: 8px; }
+        th { background-color: darkgray; }
+        .btn {
+            padding: 8px 16px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 4px;
+            margin: 5px;
+        }
+        .update { background: #002F55; color: white; }
+        .delete { background: #EE204D; color: greenyellow; }
+        .add { background: #98FB98; color: black; }
+    </style>
+</head>
+<body>
+<div style="margin: 15px 0;">
+    <a th:href="@{/users/new}" class="btn add">NEW USER</a>
+</div>
+
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Available Actions</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+        <td th:text="${user.age}"></td>
+        <td>
+            <a th:href="@{/users/{id}/edit(id=${user.id})}" class="btn update">UPDATE</a>
+            <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" style="display: inline;">
+                <button type="submit" class="btn delete">DELETE</button>
+            </form>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
